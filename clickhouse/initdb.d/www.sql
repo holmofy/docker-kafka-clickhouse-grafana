@@ -3,12 +3,12 @@ create database www;
 CREATE TABLE www.nginx_access_log_consumer (
     `agent` String,
     `code` UInt16,
-    `host` String,
     `http_x_forwarded_for` String,
     `method` String,
     `path` String,
     `referer` String,
     `remote` String,
+    `server` String,
     `size` UInt64,
     `user` String
 ) ENGINE = Kafka SETTINGS kafka_broker_list = 'kafka-broker:9092',
@@ -21,12 +21,12 @@ CREATE TABLE www.nginx_access (
     `access_time` DateTime,
     `agent` String,
     `code` UInt16,
-    `host` String,
     `http_x_forwarded_for` String,
     `method` String,
     `path` String,
     `referer` String,
     `remote` String,
+    `server` String,
     `size` UInt64,
     `user` String
 ) ENGINE = MergeTree()
