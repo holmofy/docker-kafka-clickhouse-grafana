@@ -49,7 +49,7 @@ CREATE TABLE www.nginx_access (
     `postal` String
 ) ENGINE = MergeTree()
 ORDER BY
-    (access_time, host) 
+    (access_time, server)
 PARTITION BY toDate(access_time);
 
 CREATE MATERIALIZED VIEW www.nginx_access_log TO www.nginx_access AS
