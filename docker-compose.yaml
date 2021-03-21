@@ -1,0 +1,56 @@
+version: '3'
+
+services: 
+  zookeeper: 
+    image: zookeeper:3.5.9
+    ports:
+      - 2181:2181
+      - 18080:8080 # http
+    deploy: 
+      resources: 
+        limits: 
+          memory: 64M
+  kafka-broker:
+    image: wurstmeister/kafka:2.13-2.7.0
+    ports:
+      - 19092:19092
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      - KAFKA_LISTENERS=INSIDE://:9092,OUTSIDE://:19092
+      - KAFKA_ADVERTISED_LISTENERS=INSIDE://:9092,OUTSIDE://report:19092
+      - KAFKA_INTER_BROKER_LISTENER_NAME=INSIDE
+      # nginx_access_log 2 parition 1 repalication
+      - KAFKA_CREATE_TOPICS=nginx_access:2:1
+    deploy: 
+      resources: 
+        limits:
+          memory: 712M
+  clickhouse-server:
+    image: yandex/clickhouse-server
+    ports: 
+      - 8123:8123  # http interface
+      - 9000:9000  # native client
+    depends_on:
+      - kafka-broker
+    volumes: 
+      - ./clickhouse/data:/var/lib/clickhouse
+      - ./clickhouse/initdb.d:/docker-entrypoint-initdb.d
+    deploy: 
+      resources: 
+        limits: 
+          memory: 1024M
+  grafana:
+    image: grafana/grafana
+    ports: 
+     - 3000:3000   # web port
+    environment: 
+     - GF_PATHS_PLUGINS=/var/lib/grafana/plugins
+    volumes: 
+     - ./grafana:/var/lib/grafana/plugins
+    deploy: 
+      resources: 
+        limits: 
+          memory: 512M
