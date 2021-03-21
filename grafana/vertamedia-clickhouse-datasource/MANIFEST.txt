@@ -1,0 +1,42 @@
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+{
+  "manifestVersion": "2.0.0",
+  "signatureType": "community",
+  "signedByOrg": "vertamedia",
+  "signedByOrgName": "Vertamedia",
+  "plugin": "vertamedia-clickhouse-datasource",
+  "version": "2.2.3",
+  "time": 1613550569286,
+  "keyId": "7e4d0c6a708866e7",
+  "files": {
+    "partials/query.editor.html": "eb9ab7af412a922ea2ce09c86b99a75ba70000977a5fd882b8e327a2a27e1904",
+    "partials/config.html": "51ba130304c63c1a00590a9dc94c8351ff6277e4cf695720de57bff87aeec744",
+    "partials/annotations.editor.html": "14d2d5add7f13c7c722e33bbc53ef83750fb624e5f7d6efee4a9568addc2ab78",
+    "LICENSE": "a434fc6dd97d5c425c6edbeff0276afd60ab5fffab3ed2c563f95a389502d074",
+    "README.md": "3194fcabb4b7ea1666d2d805a633555afbbe8f45e1e6cd73e3c21d0456cd5f46",
+    "vertamedia-clickhouse-plugin_darwin_amd64": "14b28998f04530d0936280abd0745008960e5bface727d4a16860beed8bd3df9",
+    "vertamedia-clickhouse-plugin_linux_arm64": "aa8839b490226e50f3d3cd9e18cf02766840207c0cd6da551e88aaea06f02514",
+    "vertamedia-clickhouse-plugin_windows_amd64.exe": "217dc0a70b8d9cf891f3ad46b2c24d056ca8ea045a765a991f459fca9c74d639",
+    "module.js.map": "f7c69a6a129aeeaea1716d83c2c1d81b31422c0eb98f2922a99b2ebbd8b7cbf3",
+    "module.js": "45ee981126dc37ef35b950a8f897c2c379dd444b2506589ac225b31b346ff347",
+    "img/datasource.png": "8d6dcdddfad512abed8c251404f652383f63ad17bc5c7cbe3e67ad9e6fa0327f",
+    "img/clickhouse_logo.svg": "111c2048c9bad4a11b0273cf17839696d98968c04cdcc5ea0716bdc973f2e8e4",
+    "img/annotations.png": "09cc19df992fede5c4dd830f7b3c7a783702feced07ea9693d417ec127077b00",
+    "img/query_editor.png": "b8d50f644d413b15aaf0d7b71fdfa4423f1a045761ec368b19a15e3d1aaf9308",
+    "vertamedia-clickhouse-plugin_linux_amd64": "adcb21ad355b765c88025c043a0680ea6d7e1316a8423684d7c46befae830f21",
+    "plugin.json": "7e322a287a2bd93abde0a5f02aeb64b7e00d14f3f65a011f39036c572981e812"
+  }
+}
+-----BEGIN PGP SIGNATURE-----
+Version: OpenPGP.js v4.10.1
+Comment: https://openpgpjs.org
+
+wqEEARMKAAYFAmAs0+kACgkQfk0ManCIZuczmQIJAWBbdcyxqU3nunK7SRGe
+kAC9vUxZWfu07JcX/HqTaXE+ET0JpyTTH/hzLVl1Su5dRh1RBe/WykBXuNTY
+YsyrV4HxAgdVAiwV2wmJNaMEKS/Jvt0gnCm38KBIE6WkPPeJkv4GJq8Vu29g
+6W1QoETZz2h3QX4lZT5NxNz5s0Y+q6CVB7CtJA==
+=5rkm
+-----END PGP SIGNATURE-----
