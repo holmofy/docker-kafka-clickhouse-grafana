@@ -1,16 +1,25 @@
 create database www;
 
 CREATE TABLE www.nginx_access_log_consumer (
-    `agent` String,
-    `code` UInt16,
-    `http_x_forwarded_for` String,
-    `method` String,
-    `path` String,
-    `referer` String,
     `remote` String,
     `server` String,
+    `user` String,
+    `method` String,
+    `path` String,
+    `code` UInt16,
     `size` UInt64,
-    `user` String
+    `referer` String,
+    `agent` String,
+    `http_x_forwarded_for` String,
+    `country` LowCardinality(String),
+    `country_name` LowCardinality(String),
+    `country_code` LowCardinality(String),
+    `province` String,
+    `province_name` String,
+    `province_code` String,
+    `city` String,
+    `city_name` String,
+    `postal` String
 ) ENGINE = Kafka SETTINGS kafka_broker_list = 'kafka-broker:9092',
 kafka_topic_list = 'nginx_access',
 kafka_group_name = 'nginx_access.clickhouse',
@@ -19,16 +28,25 @@ kafka_num_consumers = 1;
 
 CREATE TABLE www.nginx_access (
     `access_time` DateTime,
-    `agent` String,
-    `code` UInt16,
-    `http_x_forwarded_for` String,
-    `method` String,
-    `path` String,
-    `referer` String,
     `remote` String,
     `server` String,
+    `user` String,
+    `method` String,
+    `path` String,
+    `code` UInt16,
     `size` UInt64,
-    `user` String
+    `referer` String,
+    `agent` String,
+    `http_x_forwarded_for` String,
+    `country` LowCardinality(String),
+    `country_name` LowCardinality(String),
+    `country_code` LowCardinality(String),
+    `province` String,
+    `province_name` String,
+    `province_code` String,
+    `city` String,
+    `city_name` String,
+    `postal` String
 ) ENGINE = MergeTree()
 ORDER BY
     (access_time, host) 
