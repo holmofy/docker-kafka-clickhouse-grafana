@@ -38,6 +38,7 @@ services:
     volumes: 
       - ./clickhouse/data:/var/lib/clickhouse
       - ./clickhouse/initdb.d:/docker-entrypoint-initdb.d
+      - ./clickhouse/etc/users.xml:/etc/clickhouse-server/users.xml
     deploy: 
       resources: 
         limits: 
